@@ -1,0 +1,7 @@
+.profile {
+    background-color: green;
+    display: grid;
+    justify-content: center;
+    grid-area: c;
+    height: 100%;
+}

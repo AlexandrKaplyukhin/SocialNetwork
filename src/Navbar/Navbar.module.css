@@ -1,0 +1,82 @@
+.navbar {
+    background-color: red;
+    display: grid;
+    grid-area: n;
+}
+
+.linksElements {
+    display: grid;
+    grid-row-gap: 3%;
+    background-color: aqua;
+    margin: 4%;
+    min-height: 270px;
+    height: 6em;
+}
+
+.linkMenu {
+    background-color: greenyellow;
+    display: flex;
+    align-items: center;
+    padding: 3%;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.linkMenu:hover{
+    background-color: #ff0000;
+    transition: 0.5s;
+}
+
+.linkMenuActive {
+    background-color: #2f40ff;
+    display: flex;
+    align-items: center;
+    padding: 3%;
+    text-decoration: none;
+    border-right: 0.3em solid #000000;
+}
+
+.sidebar{
+    margin: 4%;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    border-radius: 1em;
+    display: grid;
+    background-color: darkolivegreen;
+    height: 9em;
+float: bottom;
+}
+
+.sidebar p{
+    margin: 5%
+}
+
+.friendsList{
+    padding: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10%;
+    background-color: #341c1c;
+    width: 100%;
+    border-radius: 1em;
+    font-size: 1em;
+}
+
+.friend {
+    font-weight: normal;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    background-color: indianred;
+    border-radius: 0.5em;
+}
+
+.friend img{
+    border-radius: 0.2em;
+    background-size: contain;
+    width: 100%;
+
+}
