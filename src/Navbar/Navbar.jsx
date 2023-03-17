@@ -6,7 +6,8 @@ import {
     mdiCogOutline,
     mdiHeadphones,
     mdiMessageOutline,
-    mdiNewspaperVariantOutline
+    mdiNewspaperVariantOutline,
+    mdiAccountGroupOutline
 } from "@mdi/js";
 
 const Navbar = () => {
@@ -17,6 +18,9 @@ const Navbar = () => {
                 <NavLink to="/profile"
                          className={navData => navData.isActive ? style.linkMenuActive : style.linkMenu}><Icon
                     path={mdiAccountCircleOutline} size={1}/>Profile</NavLink>
+                    <NavLink to="/users"
+                         className={navData => navData.isActive ? style.linkMenuActive : style.linkMenu}><Icon
+                    path={mdiAccountGroupOutline} size={1}/>Users</NavLink>
                 <NavLink to="/messages" className={navData => navData.isActive ? style.linkMenuActive : style.linkMenu}><Icon
                     path={mdiMessageOutline} size={1}/>Messages</NavLink>
                 <NavLink to="/news"

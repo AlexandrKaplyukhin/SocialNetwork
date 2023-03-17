@@ -16,25 +16,18 @@ switch(action.type){
         let newMessage = {
             id: 4, message: state.newMessageText
         }
-
-        let stateCopy = {
-            ...state
+return {
+            ...state,
+            newMessageText: '',
+            messagesData: [...state.messagesData, newMessage]
         }
 
-        stateCopy.messagesData = [
-            ...state.messagesData
-        ]
-
-        stateCopy.messagesData.push(newMessage);
-        stateCopy.newMessageText = '';
-        return stateCopy;
     }
         case UPDATE_NEW_MESSAGE_TEXT:{
-            let stateCopy = {
-                ...state
+            return {
+                ...state,
+                newMessageText: action.newText
             }
-            stateCopy.newMessageText = action.newText;
-            return stateCopy;
         }
     default:
         return state;
