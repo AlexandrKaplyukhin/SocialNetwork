@@ -1,3 +1,9 @@
 .profile {
 
 }
+
+.currentPage{
+    color: red;
+    cursor: pointer;
+    margin-left: 1em;
+}
