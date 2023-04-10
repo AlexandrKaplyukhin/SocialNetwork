@@ -10,7 +10,9 @@ class UsersContainer extends React.Component{
     
     componentDidMount() {
         this.props.setIsFetchingActionCreator(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+            withCredentials: true,
+            }).then(response => {
             this.props.setIsFetchingActionCreator(false);
    
         this.props.setUsersActionCreator(response.data.items);
@@ -23,7 +25,9 @@ class UsersContainer extends React.Component{
         this.props.setCurrentPageActionCreator(numPage)
         this.props.setIsFetchingActionCreator(true);
 
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${numPage}&count=${this.props.pageSize}`).then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${numPage}&count=${this.props.pageSize}`, {
+            withCredentials: true,
+           }).then(response => {
             this.props.setIsFetchingActionCreator(false);    
         this.props.setUsersActionCreator(response.data.items);
         })
@@ -31,11 +35,12 @@ class UsersContainer extends React.Component{
     
 
     render() {    
+        debugger;
         return ( 
             <>
             {this.props.isFetching ? <Preloader/> : null}
         <Users totalUsersCount={this.props.totalUsersCount} pageSize={this.props.pageSize} currentPage={this.props.currentPage} onPageChange={this.onPageChange} users={this.props.users}
-        follow={this.props.follow} unfollow={this.props.unfollow}/>
+        follow={this.props.followActionCreator} unfollow={this.props.unfollowActionCreator}/>
         </>
         )
 }
@@ -81,10 +86,8 @@ return{
 
     let myUsersContainer = connect(mapStateToProps, {
         followActionCreator,
-        
         unfollowActionCreator,
         setUsersActionCreator,
-        
         setCurrentPageActionCreator,
         setTotalCountActionCreator,
         setIsFetchingActionCreator,

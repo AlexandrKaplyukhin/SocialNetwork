@@ -10,7 +10,7 @@
 .exitButton{
     background-color: red;
 }
-.mainName{
+.mainName, .loginBlock{
     text-decoration: none;
     text-align: center;
     font-weight: bold;

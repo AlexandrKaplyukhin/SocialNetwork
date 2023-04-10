@@ -4,11 +4,11 @@ import Icon from "@mdi/react";
 import { mdiExitToApp } from '@mdi/js';
 
 
-const Header = () => {
+const Header = (props) => {
     return (
         <header className={style.header}>
-            <div>
-                {/*plug*/}
+            <div className={style.loginBlock}>
+                {props.isAuth ? <p>{props.login}</p> : <NavLink to='/login'>Login</NavLink>}
             </div>
             <NavLink to='/profile' className={style.mainName}>Social Network</NavLink>
             <NavLink to=''>
