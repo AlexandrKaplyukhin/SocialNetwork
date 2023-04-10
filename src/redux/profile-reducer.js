@@ -9,7 +9,7 @@ let initilaState = {
         { id: 1, message: 'Alex the best', like: 15 },
         { id: 1, message: 'Alex the best', like: 15 },
     ],
-    newPostText: 'Alex the best homa'
+    newPostText: 'Test menu'
 }
 
 const profileReducer = (state = initilaState, action) => {

@@ -6,7 +6,7 @@ let initilaState = {
     messagesData: [{ style: 'from', message: "Hello" }, { style: 'toMe', message: "I'am Alex" }, {
         id: 3, message: "It developer"
     }, { id: 4, message: 'Danil' }],
-    newMessageText: 'Alex the best IT-shnik in Kazan'
+    newMessageText: 'Text message menu'
 }
 
 const dialogsReducer = (state = initilaState, action) => {
