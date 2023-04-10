@@ -1,5 +1,5 @@
 import style from './Header.module.css'
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Icon from "@mdi/react";
 import { mdiExitToApp } from '@mdi/js';
 

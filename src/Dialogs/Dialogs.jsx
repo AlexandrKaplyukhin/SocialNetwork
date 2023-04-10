@@ -5,7 +5,7 @@ import DialogsItemContainer from "./DialogsItem/DialogsItemContainer";
 const Dialogs = (props) => {
     return (
         <div className={style.dialogs}>
-            <DialogsItemContainer store={props.store}/>
+            <DialogsItemContainer store={props.store} />
             <DialogContainer store={props.store} />
         </div>
     )

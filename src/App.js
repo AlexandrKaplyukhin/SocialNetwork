@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./Navbar/Navbar";
 import Dialogs from "./Dialogs/Dialogs";
 import UsersContainer from './Users/UsersContainer';
@@ -11,20 +11,20 @@ function App(props) {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
-                <HeaderContainer/>
-                    <Navbar/>
-                    <div className="app-wrapper-content">
-                        <Routes>
+                <HeaderContainer />
+                <Navbar />
+                <div className="app-wrapper-content">
+                    <Routes>
                         <Route path="/profile" element={<ProfileContainer />}>
-                        <Route path=":userId" element={<ProfileContainer />} />
-                                    </Route>
-                            <Route path="/messages" element={<Dialogs/>}/>
-                            <Route path="/users" element={<UsersContainer/>}/>
-                            <Route path="/music" element={<MusicsContainer/>}/>
+                            <Route path=":userId" element={<ProfileContainer />} />
+                        </Route>
+                        <Route path="/messages" element={<Dialogs />} />
+                        <Route path="/users" element={<UsersContainer />} />
+                        <Route path="/music" element={<MusicsContainer />} />
 
 
-                        </Routes>
-                    </div>
+                    </Routes>
+                </div>
             </div>
         </BrowserRouter>
 

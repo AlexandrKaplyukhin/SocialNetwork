@@ -1,9 +1,9 @@
 import React from "react";
 import style from "./Dialog.module.css"
 import Icon from "@mdi/react";
-import {mdiEmailFast, mdiPaperclip} from "@mdi/js";
+import { mdiEmailFast, mdiPaperclip } from "@mdi/js";
 
-const Dialog = (props) =>{
+const Dialog = (props) => {
 
     let messagesData = props.messagesData.map(messages => (
         <div className={style.message} id={style.from}>
@@ -29,12 +29,12 @@ const Dialog = (props) =>{
             </div>
             <div className={style.newMessage}>
                 <div className={style.clip}>
-                    <Icon path={mdiPaperclip} size={1}/>
+                    <Icon path={mdiPaperclip} size={1} />
                 </div>
-                <textarea name="" id="" cols="30" rows="1" 
-               ref={messageValue} value={props.newMessageText} onChange={updateNewTextMessage}></textarea>
+                <textarea name="" id="" cols="30" rows="1"
+                    ref={messageValue} value={props.newMessageText} onChange={updateNewTextMessage}></textarea>
                 <div className={style.sendMessage} onClick={sendMessage}>
-                    <Icon path={mdiEmailFast} size={1}/>
+                    <Icon path={mdiEmailFast} size={1} />
                 </div>
             </div>
         </div>

@@ -1,11 +1,11 @@
 const ADD_MUSIC = 'ADD_MUSIC'
 let initialState = {
     musics: [
-        {id: 1, nameOfTrack: 'newMusics', file: '123'},
-        {id: 2, nameOfTrack: 'newMusics1', file: '1234'},
+        { id: 1, nameOfTrack: 'newMusics', file: '123' },
+        { id: 2, nameOfTrack: 'newMusics1', file: '1234' },
 
 
-     ]
+    ]
 }
 
 const musicsReducer = (state = initialState, action) => {
@@ -16,7 +16,7 @@ const musicsReducer = (state = initialState, action) => {
             }
             return {
                 ...state,
-                musics: [...state.musics, newTrack] 
+                musics: [...state.musics, newTrack]
             }
         }
         default:
@@ -26,7 +26,7 @@ const musicsReducer = (state = initialState, action) => {
 
 export const addMusicActionCreator = (nameOfTrack, file) => (
     {
-        type: ADD_MUSIC , nameOfTrack:nameOfTrack, file: file
+        type: ADD_MUSIC, nameOfTrack: nameOfTrack, file: file
     }
 )
 

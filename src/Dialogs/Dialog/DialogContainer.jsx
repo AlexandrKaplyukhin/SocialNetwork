@@ -3,10 +3,10 @@ import { sendMessageActionCreator, updateNewTextMessageActionCreator } from "../
 import { connect } from "react-redux";
 
 let mapStateToProps = (state) => {
-return {
-    messagesData: state.dialogPage.messagesData,
-    newMessageText: state.dialogPage.newMessageText
-}
+    return {
+        messagesData: state.dialogPage.messagesData,
+        newMessageText: state.dialogPage.newMessageText
+    }
 }
 
 let mapDispatchToProps = (dispatch) => {
@@ -18,11 +18,11 @@ let mapDispatchToProps = (dispatch) => {
             let action = updateNewTextMessageActionCreator(text)
             dispatch(action)
         }
-        
+
     }
 }
 
-const DialogContainer = connect(mapStateToProps, mapDispatchToProps)(Dialog) 
+const DialogContainer = connect(mapStateToProps, mapDispatchToProps)(Dialog)
 
 
 export default DialogContainer;

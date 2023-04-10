@@ -5,21 +5,22 @@ import { connect } from 'react-redux';
 
 
 class MusicsContainer extends React.Component {
-componentDidMount(){
+    componentDidMount() {
 
-}
+    }
 
 
-render() {
-    return <Musics {...this.props} musics={this.props.musics}/>
-}
+    render() {
+        return <Musics {...this.props} musics={this.props.musics} />
+    }
 }
 
 let mapStateToProps = (state) => {
     return {
-    musics: state.musicPage.musics
-}}
+        musics: state.musicPage.musics
+    }
+}
 
 
 
-export default connect(mapStateToProps, {addMusicActionCreator:addMusicActionCreator}) (MusicsContainer);
+export default connect(mapStateToProps, { addMusicActionCreator: addMusicActionCreator })(MusicsContainer);
