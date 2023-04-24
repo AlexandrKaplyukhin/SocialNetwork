@@ -1,68 +1,7 @@
-.dialog{
-    background-color: indianred;
-    height: 83vh;
-    padding: 1%;
-    display: grid;
-    grid-template-rows: 11fr minmax(40px,1fr);
-    grid-row-gap: 1em;
-}
-
-.messages{
-    background-color: greenyellow;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    overflow-y: scroll;
-    padding: 0.8em 1em;
-    flex-direction: row;
-    align-content: end;
-
-}
-.message {
-    background-color: #ffffff;
-    border-radius: 0.5em;
-    padding: 1%;
-    display: flex;
-    align-items: center;
-    width: 50%;
-    max-height: 5%;
-    margin: 0.2em 0;
-}
-
-
-
-
 #from{
     margin-left: auto
 }
 
 #toMe{
     margin-right: auto
-}
-.newMessage{
-    background-color: #ff1f1f;
-    bottom: 0;
-    display: grid;
-    grid-template-columns: 1fr 11fr 1fr;
-    align-items: center;
-    grid-column-gap: 1em;
-    padding: 0 1em;
-}
-
-.newMessage textarea{
-    border-radius: 0.5em;
-    outline: none;
-    padding: 1%;
-    font-size: large;
-    min-height: 20px;
-}
-
-.clip, .sendMessage{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    background-color: #2f40ff;
-    border-radius: 0.5em;
-    padding:10% 0;
-    width: auto;
 }

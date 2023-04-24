@@ -1,13 +1,20 @@
-import style from "./Dialogs.module.css"
 import DialogContainer from "./Dialog/DialogContainer";
 import DialogsItemContainer from "./DialogsItem/DialogsItemContainer";
+import styled from "styled-components";
 
+const MessageWrapper = styled.div`
+background-color: rgb(223, 223, 223);
+display: grid;
+grid-template-columns: 1fr minmax(600px,3.5fr);
+grid-template-rows: 100%;
+grid-gap: 1em;
+`
 const Dialogs = (props) => {
     return (
-        <div className={style.dialogs}>
+        <MessageWrapper>
             <DialogsItemContainer store={props.store} />
             <DialogContainer store={props.store} />
-        </div>
+        </MessageWrapper>
     )
 }
 

@@ -1,13 +1,21 @@
-import style from './Profile.module.css'
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import styled from 'styled-components';
 
+const ProfileWrapper = styled.div`
+    background-color: rgb(223, 223, 223);
+    display: grid;
+    justify-content: center;
+    grid-area: c;
+    height: 100%;
+}
+`
 const Profile = (props) => {
     return (
-        <div className={style.profile}>
+        <ProfileWrapper>
             <ProfileInfo profile={props.profile} />
             <MyPostsContainer />
-        </div>
+        </ProfileWrapper>
     )
 }
 

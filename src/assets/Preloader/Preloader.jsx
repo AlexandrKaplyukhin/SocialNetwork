@@ -1,11 +1,14 @@
-import loader from '../images/loader.svg'
+import styled from 'styled-components';
+import loader from '../images/loaderrr.svg'
 
-
+const PreloaderWrapper = styled.div`
+width:40%;
+`
 const Preloader = () => {
     return (
-        <div>
+        <PreloaderWrapper>
             <img src={loader} alt="" />
-        </div>
+        </PreloaderWrapper>
     )
 }
 

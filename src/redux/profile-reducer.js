@@ -5,9 +5,9 @@ const SET_USER_PROFILE = 'SET_USER_PROFILE';
 let initilaState = {
     profile: null,
     posts: [
-        { id: 1, message: 'Alex the best', like: 15 },
-        { id: 1, message: 'Alex the best', like: 15 },
-        { id: 1, message: 'Alex the best', like: 15 },
+        { id: 1, message: 'Test', like: 15 },
+        { id: 1, message: 'Test', like: 15 },
+        { id: 1, message: 'Test', like: 15 },
     ],
     newPostText: 'Test menu'
 }
