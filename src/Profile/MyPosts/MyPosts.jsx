@@ -14,6 +14,7 @@ const PostsWrapper = styled.div`
     min-width: 500px;
     border-radius: 1em;
     overflow:hidden;
+    margin-bottom:1em;
 `
 const NewPost = styled.div`
     display: grid;
