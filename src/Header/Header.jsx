@@ -13,6 +13,9 @@ const HeaderWrapper = styled.header`
     align-items: center;
     min-width: 900px;
     @media (max-width:450px){
+        display: grid;
+    grid-area: h;
+    grid-template-columns: 1fr 2fr 1fr;
         min-width: 100px;
         width:100vw;
     }
@@ -29,7 +32,13 @@ const NavLinkToProfile = styled(NavLink)`
         margin-top:0.1em;
     }
     @media (max-width:450px){
-        font-size: 1em;
+        display: none;
+    }
+`
+const NavLinkToProfileMob = styled(NavLinkToProfile)`
+display:none;
+@media (max-width:450px){
+        display: inline ;
     }
 `
 
@@ -71,6 +80,9 @@ const MultiCardFront = styled.div`
     font-weight: bold;
     color: white;
     letter-spacing: 2px;
+    @media (max-width:450px){
+    font-size: small;
+    }
 `
 
 const MultiCardBack = styled.div`
@@ -86,7 +98,7 @@ const MultiCardBack = styled.div`
 `
 
 const Menu = styled.div`
-display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     color:white;
@@ -97,7 +109,16 @@ display: flex;
     }
     @media(max-width:450px){
         visibility:visible;
+        justify-self: flex-start;
+        margin-left: 10%;
+
     }
+`
+
+const NavLinkLoginLogout = styled(NavLink)`
+color:white;
+text-decoration: none;
+font-size: medium;
 `
 //---------- --------------- ----------
 
@@ -109,14 +130,15 @@ const Header = (props) => {
             <Icon path={mdiMenu} size={1.5} />
             </Menu>
             <NavLinkToProfile to='/profile'>Social Network</NavLinkToProfile>
+            <NavLinkToProfileMob to='/profile'>SN</NavLinkToProfileMob>
             <NavLinkToLogin to=''>
                 <div>
                     <MultiCard>
                         <MultiCardFront className='front'>
-                            {props.isAuth ? <p>{props.login}</p> : <NavLink to='/login'>Login</NavLink>}
+                            {props.isAuth ? <p>{props.login}</p> : <NavLinkLoginLogout to='/login'>Login</NavLinkLoginLogout>}
                         </MultiCardFront>
                         <MultiCardBack className='back'>
-                            {props.isAuth ? <Icon onClick={props.logout} path={mdiExitToApp} size={1.5} /> : <NavLink  to='/login'>Logout<Icon path={mdiAccountPlus} size={1.5} /></NavLink>}
+                            {props.isAuth ? <Icon onClick={props.logout} path={mdiExitToApp} size={1.5} /> : <NavLinkLoginLogout to='/login'><Icon path={mdiAccountPlus} size={1.5} /></NavLinkLoginLogout>}
                         </MultiCardBack>
                     </MultiCard>
                 </div>

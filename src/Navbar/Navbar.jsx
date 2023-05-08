@@ -16,22 +16,25 @@ import styled, { keyframes } from 'styled-components';
 
 
 const NavbarWrapper = styled.div`
-display: grid;
+    display: grid;
     grid-area: n;
-    @media (max-width:450px) {
-        display:none;
-        margin-top:6vh;
-        background-color:grey;
+    @media (max-width:450px), (orientation: landscape) {
+        background-color:red;
             position:absolute;
             width:100vw;
-            height:100vh;
+            height:8vh;
+            position: absolute;
+            bottom: 0px;
 }
 `
 
 const Content = styled.div`
 @media (max-width:450px) {
     display: grid;
-    grid-template-rows: 2fr 1fr;
+    
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    color:white;
 }
 `
 const MenuWrapper = styled.div`
@@ -54,12 +57,7 @@ const PlayerWrapper = styled.div`
     margin:10% 0 10% 0;
     background-color: #c4c4c4;
     @media (max-width:450px) {
-        padding:0;
-        border-radius:1em 1em 0 0;
-        margin:20% 0 10% 0;
-
-
-
+       display: none;
 }
 `
 const ControlButton = styled.button`
@@ -95,6 +93,7 @@ const NameTrack = styled.div`
     justify-content:center;
     align-items:center;
     overflow: hidden;
+   
 `
 const ValueName = styled.p`
       animation:${animationText}  5s infinite linear;
@@ -139,10 +138,8 @@ justify-self: center;
 align-self:start;
     border-radius: 0.2em;
     width: 80%;
-    align:top;
 `
 const Navbar = () => {
-
     return (
         <NavbarWrapper>
             <Content>

@@ -32,8 +32,15 @@ const LoginFormWrapper = styled.form`
   min-height: 200px;
   border-radius: 1em;
   padding: 2em;
-   @media (max-width: 450px) {
+   @media (max-width:450px) {
     width: 90%;
+    min-width: 150px;
+    border-radius: 25% 10%;
+    margin:5%;
+    }
+
+    @media(orientation: landscape){
+      width: 50%;
     min-width: 150px;
     border-radius: 25% 10%;
     margin:5%;
