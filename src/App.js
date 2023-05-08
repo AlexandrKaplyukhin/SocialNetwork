@@ -17,7 +17,7 @@ const AppWrapper = styled.div`
     margin: 1em;
     @media (max-width: 450px) {
         grid-template-columns: repeat(auto-fit, 100%);
-        grid-template-rows: 6vh 100%;
+        grid-template-rows: 9vh 100%;
         margin:0;
     }
     `

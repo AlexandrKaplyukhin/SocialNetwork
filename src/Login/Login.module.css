@@ -15,3 +15,9 @@
     color:aliceblue;
 transition: 0.5s;
 }
+
+.checkBox{
+    transform:scale(1.5);
+  opacity:0.9;
+  cursor:pointer;
+}

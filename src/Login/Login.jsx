@@ -33,9 +33,11 @@ const LoginFormWrapper = styled.form`
   border-radius: 1em;
   padding: 2em;
    @media (max-width: 450px) {
-    width: 100%;
-    border-radius: 1em;
-  }
+    width: 90%;
+    min-width: 150px;
+    border-radius: 25% 10%;
+    margin:5%;
+    }
 `
 const Title = styled.h1`
   text-align: center;
@@ -106,7 +108,7 @@ const LoginForm = (props) => {
       </ErrorField>
       <SendForm>
         <CheckBox>
-          <Field type={"checkbox"} name="rememberme" component={Input} />{" "}
+          <Field type={"checkbox"} name="rememberme" className={style.checkBox} component={Input} />{" "}
           remember me
         </CheckBox>
         <SendButton>
