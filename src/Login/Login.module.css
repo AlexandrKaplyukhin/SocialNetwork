@@ -1,0 +1,17 @@
+.logButton{
+    border:none;
+    border-radius: 1em;
+    height: 100%;
+    padding: 0 2em 0 2em;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgb(108, 108, 148);
+}
+
+.logButton:hover{
+    background-color: rgb(57, 57, 90);
+    color:aliceblue;
+transition: 0.5s;
+}

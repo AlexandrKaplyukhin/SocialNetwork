@@ -5,3 +5,26 @@
 #toMe{
     margin-right: auto
 }
+
+.newMessagevalue{
+    border-radius: 0.5em;
+outline: none;
+padding: 1%;
+font-size: large;
+min-height: 20px;
+resize: none;
+}
+
+.sendMessage{
+display: grid;
+justify-content: center;
+align-items: center;
+border-radius: 0.5em;
+padding:10% 0;
+width: auto;
+cursor: pointer;
+}
+.sendMessage :hover{
+ transition:0.5s;
+    background-color: grey;
+}

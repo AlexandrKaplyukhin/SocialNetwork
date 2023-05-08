@@ -1,36 +1,28 @@
 import { connect } from 'react-redux';
-import { followActionCreator, unfollowActionCreator, setUsersActionCreator, setCurrentPageActionCreator, setTotalCountActionCreator, setIsFetchingActionCreator } from '../redux/users-reducer';
+import { followActionCreator,
+     unfollowActionCreator,
+       setCurrentPageActionCreator,
+    setIsFollowingProgressActionCreator,
+    getUsers
+} from '../redux/users-reducer';
 import Users from './Users';
 import React from 'react';
-import axios from 'axios';
 import Preloader from '../assets/Preloader/Preloader';
+import { compose } from 'redux';
+import { withAuthRedirect } from '../hoc/withAuthRedirect';
 
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.setIsFetchingActionCreator(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
-            withCredentials: true,
-        }).then(response => {
-            this.props.setIsFetchingActionCreator(false);
-
-            this.props.setUsersActionCreator(response.data.items);
-            this.props.setTotalCountActionCreator(response.data.totalCount);
-
-        })
+      
+        this.props.getUsers(this.props.currentPage, this.props.pageSize)
     }
 
     onPageChange = (numPage) => {
-        this.props.setCurrentPageActionCreator(numPage)
-        this.props.setIsFetchingActionCreator(true);
+        this.props.setCurrentPageActionCreator(numPage);
 
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${numPage}&count=${this.props.pageSize}`, {
-            withCredentials: true,
-        }).then(response => {
-            this.props.setIsFetchingActionCreator(false);
-            this.props.setUsersActionCreator(response.data.items);
-        })
+        this.props.getUsers(numPage, this.props.pageSize)
     }
 
 
@@ -39,22 +31,14 @@ class UsersContainer extends React.Component {
             <>
                 {this.props.isFetching ? <Preloader /> : null}
                 <Users totalUsersCount={this.props.totalUsersCount} pageSize={this.props.pageSize} currentPage={this.props.currentPage} onPageChange={this.onPageChange} users={this.props.users}
-                    follow={this.props.followActionCreator} unfollow={this.props.unfollowActionCreator} />
+                    followingInProgress={this.props.followingInProgress} follow={this.props.followActionCreator} unfollow={this.props.unfollowActionCreator} setIsFollowingProgressActionCreator={this.props.setIsFollowingProgressActionCreator} />
             </>
         )
     }
 }
 
 
-let mapStateToProps = (state) => {
-    return {
-        users: state.usersPage.users,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        pageSize: state.usersPage.pageSize,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
-    }
-}
+
 /*
 let mapDispatchToProps = (dispatch) => {
 return{
@@ -81,18 +65,26 @@ return{
 }
 }*/
 
+let mapStateToProps = (state) => {
+    return {
+        users: state.usersPage.users,
+        totalUsersCount: state.usersPage.totalUsersCount,
+        pageSize: state.usersPage.pageSize,
+        currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress
+    }
+}
 
 
-let myUsersContainer = connect(mapStateToProps, {
-    followActionCreator,
-    unfollowActionCreator,
-    setUsersActionCreator,
-    setCurrentPageActionCreator,
-    setTotalCountActionCreator,
-    setIsFetchingActionCreator,
 
-
-})(UsersContainer);
-
-
-export default myUsersContainer;
+export default compose(
+    withAuthRedirect,
+    connect(mapStateToProps, {
+        followActionCreator,
+        unfollowActionCreator,
+        setCurrentPageActionCreator,
+        setIsFollowingProgressActionCreator,
+        getUsers
+    })
+)(UsersContainer)

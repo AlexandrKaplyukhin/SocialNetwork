@@ -16,8 +16,23 @@ import styled, { keyframes } from 'styled-components';
 
 
 const NavbarWrapper = styled.div`
-    display: grid;
+display: grid;
     grid-area: n;
+    @media (max-width:450px) {
+        display:none;
+        margin-top:6vh;
+        background-color:grey;
+            position:absolute;
+            width:100vw;
+            height:100vh;
+}
+`
+
+const Content = styled.div`
+@media (max-width:450px) {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+}
 `
 const MenuWrapper = styled.div`
     display: grid;
@@ -25,18 +40,9 @@ const MenuWrapper = styled.div`
     margin-top: 4%;
     min-height: 270px;
     height: 6em;
-`
+    @media (max-width:450px) {
+        margin-top: 0;
 
-const Link = styled.div`
-background-color: greenyellow;
-    display: flex;
-    align-items: center;
-    padding: 3%;
-    text-decoration: none;
-    transition: 0.5s;
-    &:hover{
-        background-color: #ff0000;
-        transition: 0.5s;
     }
 `
 
@@ -47,6 +53,14 @@ const PlayerWrapper = styled.div`
     padding:5%;
     margin:10% 0 10% 0;
     background-color: #c4c4c4;
+    @media (max-width:450px) {
+        padding:0;
+        border-radius:1em 1em 0 0;
+        margin:20% 0 10% 0;
+
+
+
+}
 `
 const ControlButton = styled.button`
     border:none;
@@ -93,6 +107,9 @@ const FriendsListWrapper = styled.div`
     background-color: #c4c4c4;
     height: 9em;
     padding-top:3%;
+    @media (max-width:450px) {
+        display:none;
+}
 `
 const FriendsList = styled.div`
     padding: 5%;
@@ -128,7 +145,7 @@ const Navbar = () => {
 
     return (
         <NavbarWrapper>
-            <div>
+            <Content>
                 <MenuWrapper>
                     <NavLink to="/profile"
                         className={navData => navData.isActive ? style.linkMenuActive : style.linkMenu}><Icon
@@ -182,7 +199,8 @@ const Navbar = () => {
                         </FriendWrapper>
                     </FriendsList>
                 </FriendsListWrapper>
-            </div>
+                </Content>
+
         </NavbarWrapper>
     )
 }

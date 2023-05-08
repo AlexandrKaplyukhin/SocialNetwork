@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Icon from "@mdi/react";
-import { mdiExitToApp, mdiAccountPlus } from '@mdi/js';
+import { mdiExitToApp, mdiAccountPlus, mdiMenu } from '@mdi/js';
 import styled from 'styled-components';
 
 //---------- Styled Components ----------
@@ -12,6 +12,10 @@ const HeaderWrapper = styled.header`
     justify-content: center;
     align-items: center;
     min-width: 900px;
+    @media (max-width:450px){
+        min-width: 100px;
+        width:100vw;
+    }
 `
 
 const NavLinkToProfile = styled(NavLink)`
@@ -24,6 +28,9 @@ const NavLinkToProfile = styled(NavLink)`
     &:active{
         margin-top:0.1em;
     }
+    @media (max-width:450px){
+        font-size: 1em;
+    }
 `
 
 const NavLinkToLogin = styled(NavLink)`
@@ -33,6 +40,10 @@ const NavLinkToLogin = styled(NavLink)`
     font-size: 1.2em;
     letter-spacing: 0.5px;
     color:white;
+    @media (max-width:450px){
+        font-size: 0.5em;
+        font-weight: bolder;
+    }
 `
 
 const MultiCard = styled.div`
@@ -73,14 +84,30 @@ const MultiCardBack = styled.div`
     transform: rotateY(180deg);
     color: white;
 `
+
+const Menu = styled.div`
+display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    visibility:hidden;
+    transition:0.1s;
+    &:active{
+    color:blue;
+    }
+    @media(max-width:450px){
+        visibility:visible;
+    }
+`
 //---------- --------------- ----------
 
 
 const Header = (props) => {
     return (
         <HeaderWrapper>
-            <div>
-            </div>
+            <Menu>
+            <Icon path={mdiMenu} size={1.5} />
+            </Menu>
             <NavLinkToProfile to='/profile'>Social Network</NavLinkToProfile>
             <NavLinkToLogin to=''>
                 <div>
@@ -89,7 +116,7 @@ const Header = (props) => {
                             {props.isAuth ? <p>{props.login}</p> : <NavLink to='/login'>Login</NavLink>}
                         </MultiCardFront>
                         <MultiCardBack className='back'>
-                            {props.isAuth ? <Icon path={mdiExitToApp} size={1.5} /> : <Icon path={mdiAccountPlus} size={1.5} />}
+                            {props.isAuth ? <Icon onClick={props.logout} path={mdiExitToApp} size={1.5} /> : <NavLink  to='/login'>Logout<Icon path={mdiAccountPlus} size={1.5} /></NavLink>}
                         </MultiCardBack>
                     </MultiCard>
                 </div>

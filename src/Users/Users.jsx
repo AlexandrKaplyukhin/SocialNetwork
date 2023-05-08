@@ -4,6 +4,8 @@ import userPhoto from '../assets/images/users.png'
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
+import { usersAPI } from '../api/api';
+import { follow, unfollow } from '../redux/users-reducer';
 
 const UsersWrapper = styled.div`
     background-color: rgb(223, 223, 223);
@@ -13,7 +15,6 @@ const UsersWrapper = styled.div`
     height: 100%;
     overflow:hidden;
 `
-
 const InfoUsers = styled.div`
     display:grid;
     justify-content: center;
@@ -21,8 +22,12 @@ const InfoUsers = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(210px, 15vw));
     padding:1em;
     grid-gap:1em;
-`
+    @media (max-width:450px) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 5vw));
 
+    }
+`
 const UserCard = styled.div`
     display:grid;
     grid-template-rows:7fr 1fr 1fr;
@@ -33,8 +38,15 @@ const UserCard = styled.div`
     overflow:hidden;
     padding:1em 0.5em 1em 0.5em;
     justify-content:center;
-`
+    @media (max-width:450px) {
+        display: grid;
+        border-radius:0.5em;
+        min-width: 50px;
+        padding:1em 0.5em 1em 0.5em;
+        grid-template-rows:4fr 1fr 1fr;
 
+    }
+`
 const PhotoCard = styled.img`
     width:90%;
     justify-self:center;
@@ -65,7 +77,6 @@ const NumPage = styled.span`
         background-color:grey;
     }
 `
-
 const Button = styled.button`
     width:100%;
     height:100%;
@@ -79,7 +90,6 @@ const Button = styled.button`
         color:white;
     }
 `
-
 const NameCard = styled.div`
     display:grid;
     justify-content: center;
@@ -88,7 +98,6 @@ const LinkToProfile = styled(NavLink)`
     width:100%;
     display:grid;
 `
-
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
@@ -110,32 +119,14 @@ const Users = (props) => {
                         </NameCard>
                         <div>
                             {user.followed
-                                ? <Button onClick={() => {
-                                    axios.delete(`https://social-network.samuraijs.com/api/1.0/unfollow/${user.id}`, {
-                                        withCredentials: true,
-                                        headers: {
-                                            "API-KEY": "c473d61a-65d0-4c1b-a02b-b7d670b60d1b"
-                                        }
-                                    })
-                                        .then(response => {
-                                            if (response.data.resultCode === 0) {
-                                                props.unfollow(user.id)
-                                            }
-                                        })
+                                ? <Button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
+                                    props.unfollow(user.id)
+
                                 }}>Unfollow</Button>
 
-                                : <Button onClick={() => {
-                                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
-                                        withCredentials: true,
-                                        headers: {
-                                            "API-KEY": "c473d61a-65d0-4c1b-a02b-b7d670b60d1b"
-                                        }
-                                    })
-                                        .then(response => {
-                                            if (response.data.resultCode === 0) {
-                                                props.follow(user.id)
-                                            }
-                                        })
+                                : <Button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
+                                    props.follow(user.id)
+
                                 }}>Follow</Button>
                             }
                         </div>

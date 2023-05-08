@@ -2,17 +2,22 @@ import styled from 'styled-components';
 import Preloader from '../../assets/Preloader/Preloader';
 import Icon from '@mdi/react';
 import { mdiStarShooting } from '@mdi/js';
+import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfoWrapper = styled.div`
     display: grid;
     grid-template-rows: 3fr 1fr;
     height: 40vh;
-    justify-content: center;
     min-height: 300px;
-    padding-top:2%;
     justify-content: stretch;
-    padding: 0 10% 0 10%;
+    padding: 2% 10% 0 10%;
     min-width: 450px;
+    @media (max-width:450px) {
+        height: auto;
+        min-width: 200px;
+        min-height: 100px;
+        padding: 0;
+        }
 `
 const ProfileWrapper = styled.div`
     margin-top:3%;
@@ -21,23 +26,39 @@ const ProfileWrapper = styled.div`
     padding:3%;
     border-radius: 1em 1em 0 0 ;
     display:grid;
-    grid-template-column: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 10%;
     transition:0.5s;
     overflow:hidden;
     min-width: 300px;
     display: flex;
     justify-content: center;
+    @media (max-width:450px) {
+        border-radius:0;
+        padding:5%;
+        display:grid;
+        grid-template-columns: 1fr 2fr;
+        box-shadow: 0;
+
+        grid-gap: 1%;
+    align-items:center;
+    min-width: 100px;
+
+    margin:0;
+        }
 `
 const PhotoProfile = styled.img`
     border-radius: 1em;
-    max-height: 100%;
+    max-width: 100%;
 `
 const AboutProfile = styled.div`
     display: grid;
     justify-content: center;
     align-items: center;
     font-size: 100%;
+    @media (max-width:450px) {
+        font-size: 90%;
+        }
 `
 const InfoBar = styled.div`
     display: grid;
@@ -45,6 +66,8 @@ const InfoBar = styled.div`
     justify-content: stretch;
     text-align: center;
     width:100%;
+    @media (max-width:450px) {
+        }
 `
 const OtherInformations = styled.div`
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
@@ -57,6 +80,11 @@ const OtherInformations = styled.div`
     align-self: start;;
     border-radius: 0em 0em 1em 1em;
     border-top: 0.2em solid #1a1a54;
+    @media (max-width:450px) {
+        border-radius: 0;
+        box-shadow: 0;
+
+    }
 `
 
 const InfoBlock = styled.div`
@@ -74,6 +102,9 @@ const InfoBlock = styled.div`
     color:white;
     transition: 0.5s;  
     }
+    @media (max-width:450px) {
+font-size:90%;
+    }
 `
 
 const ProfileInfo = (props) => {
@@ -90,6 +121,7 @@ const ProfileInfo = (props) => {
                     alt="" />
                 <AboutProfile>
                     <h2>Alexandr Kaplyukhin</h2>
+                    <ProfileStatus status={props.status} updateStatusThunk={props.updateStatusThunk}/>
                     <h3>Location: Kazan</h3>
                     <h3>Birthday: 07.09.2000</h3>
                     <h3>Family status: nejenat</h3>

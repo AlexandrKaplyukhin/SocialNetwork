@@ -12,6 +12,9 @@ const PostWrapper = styled.div`
     height: auto;
     min-height: 2em;
     max-width: 50vw;
+    @media (max-width:450px) {
+        max-width: 100vw;
+        }
 `
 
 const Time = styled.p`

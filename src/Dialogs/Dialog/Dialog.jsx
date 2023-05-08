@@ -3,6 +3,12 @@ import style from "./Dialog.module.css"
 import Icon from "@mdi/react";
 import { mdiEmailFast, mdiPaperclip } from "@mdi/js";
 import styled from "styled-components";
+import { Navigate } from "react-router-dom";
+import { Field, ReduxFormContext, reduxForm } from "redux-form";
+import { Textarea } from "../../assets/FormControl/FormsControl";
+import { maxLegthCreator, requiredField } from "../../utils/validators/validators";
+
+
 
 const DialogWrapper = styled.div`
     background-color: #ababab;
@@ -11,6 +17,9 @@ const DialogWrapper = styled.div`
     display: grid;
     grid-template-rows: 11fr minmax(40px,1fr);
     grid-row-gap: 1em;
+    @media (max-width:450px){
+        display:none;
+    }
 `
 
 const Messages = styled.div`
@@ -40,14 +49,7 @@ const MessageValue = styled.p`
 word-wrap: break-word;
 hyphens: auto;
 `
-const NewMessageValue = styled.textarea`
-border-radius: 0.5em;
-outline: none;
-padding: 1%;
-font-size: large;
-min-height: 20px;
-resize: none;
-`
+
 const Message = styled.div`
 background-color: #ffffff;
 border-radius: 0.5em;
@@ -84,33 +86,39 @@ const Dialog = (props) => {
         </Message>
     ))
 
-    const messageValue = React.createRef()
-
-    let sendMessage = () => {
-        props.onSendMessage()
-    }
-
-    let updateNewTextMessage = () => {
-        let text = (messageValue.current.value);
-        props.onUpdateNewTextMessage(text)
+    let addNewMessage =(values) => {
+        props.onSendMessage(values.NewMessagevalue)
     }
     return (
         <DialogWrapper>
             <Messages>
                 {messagesData}
             </Messages>
+            <AddMessageForm onSubmit={addNewMessage}/>
+        </DialogWrapper>
+    )
+}
+
+const maxLengthFrom = maxLegthCreator(30);
+const NewMessageForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit} action="">
             <NewMessage>
                 <Button className={style.clip}>
                     <Icon path={mdiPaperclip} size={1.1} />
                 </Button>
-                <NewMessageValue name="" id="" cols="30" rows="1"
-                    ref={messageValue} value={props.newMessageText} onChange={updateNewTextMessage}></NewMessageValue>
-                <Button className={style.sendMessage} onClick={sendMessage}>
+                <Field component={Textarea} validate={[requiredField, maxLengthFrom]} className={style.newMessagevalue} name="NewMessagevalue" id="" cols="30" rows="1" placeholder="message"
+                    ></Field>
+                <button className={style.sendMessage}>
                     <Icon path={mdiEmailFast} size={1.3} />
-                </Button>
+                </button>
             </NewMessage>
-        </DialogWrapper>
+            </form>
     )
 }
+
+const AddMessageForm = reduxForm({
+    form: 'dialogAddMessageForm'
+})(NewMessageForm)
 
 export default Dialog;

@@ -3,7 +3,7 @@ import DialogsItem from "./DialogsItem"
 
 let mapStateToProps = (state) => {
     return {
-        dialogsData: state.dialogPage.dialogsData
+        dialogsData: state.dialogPage.dialogsData,
     }
 }
 const DialogsItemContainer = connect(mapStateToProps)(DialogsItem)

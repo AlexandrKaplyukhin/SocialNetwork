@@ -1,0 +1,34 @@
+.formControl.error input,
+.formControl.error textarea{
+    border: 2px solid rgb(255, 110, 110);
+    border-radius: 1em;
+
+}
+
+.formControl.error span{
+    color:rgb(255, 110, 110);
+    font-style: italic;
+   margin-left: 1%;
+}
+
+
+
+
+.formControl input{
+   width:94%;
+   padding: 3%;
+   border:none;
+   border-bottom: 2px solid rgb(167, 167, 167);
+   background: transparent !important;
+   font-size: larger;
+}
+
+
+.formControl input:focus{
+    outline: none !important;
+    background: rgb(167, 167, 167) !important;
+    transition: 0.5s;
+    border-radius: 1em;
+
+}
+

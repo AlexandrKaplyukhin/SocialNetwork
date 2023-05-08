@@ -1,16 +1,21 @@
+import { usersAPI } from "../api/api";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
 const TOOGLE_IS_FETCHING = 'TOOGLE_IS_FETCHING';
+const TOOGLE_IS_FOLLOWING_PROGRESS = 'TOOGLE_IS_FOLLOWING_PROGRESS';
+
 
 let initilaState = {
     users: [],
     pageSize: 5,
     totalUsersCount: 0,
     currentPage: 3,
-    isFetching: true
+    isFetching: false,
+    followingInProgress: []
 }
 
 const usersReducer = (state = initilaState, action) => {
@@ -20,7 +25,7 @@ const usersReducer = (state = initilaState, action) => {
                 ...state,
                 users: state.users.map(user => {
                     if (user.id === action.userId) {
-                        return { ...user, followed: false }
+                        return { ...user, followed: true }
                     }
                     return user;
                 })
@@ -32,7 +37,7 @@ const usersReducer = (state = initilaState, action) => {
                 ...state,
                 users: state.users.map(user => {
                     if (user.id === action.userId) {
-                        return { ...user, followed: true }
+                        return { ...user, followed: false }
                     }
                     return user;
                 })
@@ -63,6 +68,13 @@ const usersReducer = (state = initilaState, action) => {
                 ...state, isFetching: action.isFetching
             }
         }
+        case TOOGLE_IS_FOLLOWING_PROGRESS: {
+            return {
+                ...state, followingInProgress: action.isFetching
+                ? [...state.followingInProgress, action.userId]
+                : state.followingInProgress.filter(id => id != action.userId)
+        }}
+        
         default:
             return state
     }
@@ -95,5 +107,60 @@ export const setIsFetchingActionCreator = (isFetching) => {
         type: TOOGLE_IS_FETCHING, isFetching
     }
 }
+
+export const setIsFollowingProgressActionCreator = (isFetching, userId) => {
+    return {
+        type: TOOGLE_IS_FOLLOWING_PROGRESS, isFetching, userId
+    }
+}
+
+export const getUsers = (currentPage, pageSize ) => {
+
+
+return (dispatch) => {
+    dispatch(setIsFetchingActionCreator(true));
+        usersAPI.getUsers(currentPage, pageSize).then(data => {
+            dispatch(setIsFetchingActionCreator(false));
+
+            dispatch(setUsersActionCreator(data.items));
+            dispatch(setTotalCountActionCreator(data.totalCount));
+
+        })
+}
+}
+
+export const follow = (userId) => {
+
+
+    return (dispatch) => {
+        dispatch(setIsFollowingProgressActionCreator(true, userId))
+
+        usersAPI.follow(userId).then(data => {
+                
+                if (data.resultCode == 0) {
+                    dispatch(followActionCreator(userId))
+                }
+                dispatch(setIsFollowingProgressActionCreator(false, userId)) 
+
+            })
+    }
+    }
+
+    export const unfollow = (userId) => {
+
+
+        return (dispatch) => {
+            dispatch(setIsFollowingProgressActionCreator(true, userId))
+    
+            usersAPI.follow(userId).then(data => {
+                    
+                    if (data.resultCode == 0) {
+                        dispatch(unfollowActionCreator(userId))
+                    }
+                    dispatch(setIsFollowingProgressActionCreator(false, userId)) 
+    
+                })
+        }
+        }
 
 export default usersReducer;

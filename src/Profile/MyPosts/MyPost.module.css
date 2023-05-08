@@ -1,0 +1,28 @@
+.postTextArea{
+    border-radius: 1em;
+    outline: none;
+    display: flex;
+    padding: 0.5em;
+    font-size: large;
+    resize: none;
+    @media (max-width: 450px) {
+      width: 100%;
+      border-radius: 0 1em 1em 0;
+    }   
+}
+
+.buttonAddPost{
+    border: none;
+    cursor: pointer;
+    border-radius: 1em;
+    transition: 0.5s;
+    font-weight: bold;
+    width: 100%;
+    @media (max-width: 450px) {
+      border-radius: 1em 0 0 1em;
+    }
+}
+
+.buttonAddPost:hover {
+    background-color: rgb(173, 173, 173);
+  }
