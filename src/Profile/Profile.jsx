@@ -9,7 +9,9 @@ const ProfileWrapper = styled.div`
     justify-content: center;
     grid-area: c;
     height: 100%;
-
+    @media (max-width:450px) {
+        margin-bottom: 7vh;
+    }
 `
 const Profile = (props) => {
     return (

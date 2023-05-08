@@ -38,13 +38,6 @@ const LoginFormWrapper = styled.form`
     border-radius: 25% 10%;
     margin:5%;
     }
-
-    @media(orientation: landscape){
-      width: 50%;
-    min-width: 150px;
-    border-radius: 25% 10%;
-    margin:5%;
-    }
 `
 const Title = styled.h1`
   text-align: center;

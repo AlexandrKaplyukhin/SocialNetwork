@@ -19,6 +19,10 @@
     background: transparent !important;
     font-size: larger;
 }
+.formControl textarea {
+    width: 100%;
+    border: none;
+}
 
 
 .formControl input:focus {

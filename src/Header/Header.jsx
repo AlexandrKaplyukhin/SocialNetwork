@@ -18,6 +18,7 @@ const HeaderWrapper = styled.header`
     grid-template-columns: 1fr 2fr 1fr;
         min-width: 100px;
         width:100vw;
+        
     }
 `
 
@@ -127,7 +128,6 @@ const Header = (props) => {
     return (
         <HeaderWrapper>
             <Menu>
-            <Icon path={mdiMenu} size={1.5} />
             </Menu>
             <NavLinkToProfile to='/profile'>Social Network</NavLinkToProfile>
             <NavLinkToProfileMob to='/profile'>SN</NavLinkToProfileMob>

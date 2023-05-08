@@ -3,6 +3,7 @@ import Preloader from '../../assets/Preloader/Preloader';
 import Icon from '@mdi/react';
 import { mdiStarShooting } from '@mdi/js';
 import ProfileStatus from "./ProfileStatus"
+import PhotoUser from '../../assets/images/users.png'
 
 const ProfileInfoWrapper = styled.div`
     display: grid;
@@ -40,7 +41,7 @@ const ProfileWrapper = styled.div`
         grid-template-columns: 1fr 2fr;
         box-shadow: 0;
 
-        grid-gap: 1%;
+        grid-gap: 7%;
     align-items:center;
     min-width: 100px;
 
@@ -117,7 +118,7 @@ const ProfileInfo = (props) => {
         <ProfileInfoWrapper>
             <ProfileWrapper>
                 <PhotoProfile
-                    src={props.profile.photos.large}
+                    src={props.profile.photos.large != null ? props.profile.photos.large: PhotoUser }
                     alt="" />
                 <AboutProfile>
                     <h2>Alexandr Kaplyukhin</h2>

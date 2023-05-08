@@ -18,23 +18,19 @@ import styled, { keyframes } from 'styled-components';
 const NavbarWrapper = styled.div`
     display: grid;
     grid-area: n;
-    @media (max-width:450px), (orientation: landscape) {
-        background-color:red;
-            position:absolute;
+    @media (max-width:450px) {
+        background-color:#cecece;
+            position:fixed;
             width:100vw;
-            height:8vh;
-            position: absolute;
+            height:7vh;
             bottom: 0px;
+            overflow: hidden;
 }
 `
 
 const Content = styled.div`
 @media (max-width:450px) {
     display: grid;
-    
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    color:white;
 }
 `
 const MenuWrapper = styled.div`
@@ -45,7 +41,19 @@ const MenuWrapper = styled.div`
     height: 6em;
     @media (max-width:450px) {
         margin-top: 0;
+        padding: 0 2%;
+        min-height: 10px;
+        grid-gap: 2%;
+        height:80%;
+    display: grid;
+    align-self: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+`
 
+const NameOfLink = styled.p`
+    @media (max-width:450px) {
+       display: none;
     }
 `
 
@@ -60,6 +68,8 @@ const PlayerWrapper = styled.div`
        display: none;
 }
 `
+
+
 const ControlButton = styled.button`
     border:none;
     border-radius:0.5em;
@@ -146,21 +156,21 @@ const Navbar = () => {
                 <MenuWrapper>
                     <NavLink to="/profile"
                         className={navData => navData.isActive ? style.linkMenuActive : style.linkMenu}><Icon
-                            path={mdiAccountCircleOutline} size={1} />Profile</NavLink>
+                            path={mdiAccountCircleOutline} size={1} /><NameOfLink>Profile</NameOfLink></NavLink>
                     <NavLink to="/users"
                         className={navData => navData.isActive ? style.linkMenuActive : style.linkMenu}><Icon
-                            path={mdiAccountGroupOutline} size={1} />Users</NavLink>
+                            path={mdiAccountGroupOutline} size={1} /><NameOfLink>Users</NameOfLink></NavLink>
                     <NavLink to="/messages" className={navData => navData.isActive ? style.linkMenuActive : style.linkMenu}><Icon
-                        path={mdiMessageOutline} size={1} />Messages</NavLink>
+                        path={mdiMessageOutline} size={1} /><NameOfLink>Messages</NameOfLink></NavLink>
                     <NavLink to="/news"
                         className={navData => navData.isActive ? style.linkMenuActive : style.linkMenu}><Icon
-                            path={mdiNewspaperVariantOutline} size={1} />News</NavLink>
+                            path={mdiNewspaperVariantOutline} size={1} /><NameOfLink>News</NameOfLink></NavLink>
                     <NavLink to="/music"
                         className={navData => navData.isActive ? style.linkMenuActive : style.linkMenu}><Icon
-                            path={mdiHeadphones} size={1} />Music</NavLink>
+                            path={mdiHeadphones} size={1} /><NameOfLink>Music</NameOfLink></NavLink>
                     <NavLink to="/setting"
                         className={navData => navData.isActive ? style.linkMenuActive : style.linkMenu}><Icon
-                            path={mdiCogOutline} size={1} />Settings</NavLink>
+                            path={mdiCogOutline} size={1} /><NameOfLink>Settings</NameOfLink></NavLink>
                 </MenuWrapper>
 
                 <PlayerWrapper>

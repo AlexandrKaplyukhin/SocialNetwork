@@ -42,19 +42,6 @@ const NewPost = styled.div`
   }
 `;
 
-const PostTextArea = styled.textarea`
-  border-radius: 1em;
-  outline: none;
-  display: flex;
-  padding: 0.5em;
-  font-size: large;
-  resize: none;
-  @media (max-width: 450px) {
-    width: 100%;
-    border-radius: 0 1em 1em 0;
-  }
-`;
-
 const ButtonAddFile = styled.button`
   background-color: grey;
   border: none;
@@ -78,7 +65,6 @@ const AllPosts = styled.div`
   align-items: start;
 `;
 
-const maxLength10 = maxLegthCreator(10);
 const MyPosts = (props) => {
   let postsElements = props.posts.map((post) => (
     <Post message={post.message} key={post.id} like={post.like} />
@@ -96,15 +82,10 @@ const MyPosts = (props) => {
 };
 
 const PostForm = (props) => {
-    
-    //   let onChangePostText = () => {
-    //     let text = postValue.current.value;
-    //     props.changeTextPost(text);
-    //   };
   return (
     <form onSubmit={props.handleSubmit}>
     <NewPost>
-      <Field validate={[requiredField, maxLength10]} component={Textarea} placeholder="Post message" name="NewPostValue" className={style.postTextArea}
+      <Field component={Textarea} placeholder="Post message" name="NewPostValue" className={style.postTextArea}
         cols="30"
         rows="2"
 

@@ -7,6 +7,7 @@ class HeaderContainer extends React.Component {
 
     componentDidMount() {
         this.props.getAuth()
+
     }
     render() {
         return <Header {...this.props} isAuth={this.props.isAuth} login={this.props.login} />

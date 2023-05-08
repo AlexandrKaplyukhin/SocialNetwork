@@ -10,10 +10,14 @@ import { follow, unfollow } from '../redux/users-reducer';
 const UsersWrapper = styled.div`
     background-color: rgb(223, 223, 223);
     display: grid;
-    grid-template-rows: 10fr 1fr
+    grid-template-rows: 10fr 1fr;
     grid-area: c;
     height: 100%;
     overflow:hidden;
+    padding-bottom: 7vh;
+    @media (max-width:450px) {
+        margin-bottom: 7vh;
+    }
 `
 const InfoUsers = styled.div`
     display:grid;

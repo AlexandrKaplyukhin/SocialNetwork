@@ -1,5 +1,20 @@
 import React from "react";
+import styled from "styled-components";
 
+
+const InputStatus = styled.input`
+background-color: #c9c9c9;
+outline: none;
+border:none;
+border-radius: 0.5em;
+padding:1%;
+`
+const SpanStatus = styled.span`
+word-wrap: break-word;
+`
+const SpanWrapper = styled.div`
+width:70%;
+`
 class ProfileStatus extends React.Component {
     state = {
         editMode: false,
@@ -38,13 +53,13 @@ deactivateEditMode = () =>{
         return (
             <div>
                 {!this.state.editMode &&
-                    <div>
-                        <span onDoubleClick={this.activateEditMode}>{this.props.status || 'Hello'}</span>
-                    </div>
+                    <SpanWrapper>
+                        <SpanStatus onDoubleClick={this.activateEditMode}><b>Status: </b>{this.props.status || 'Without status'}</SpanStatus>
+                    </SpanWrapper>
                 }
                 {this.state.editMode &&
                     <div>
-                        <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode}  value={this.state.status}></input>
+                        <InputStatus onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode}  value={this.state.status}></InputStatus>
                     </div>
                 }
             </div>
