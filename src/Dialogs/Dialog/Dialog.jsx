@@ -15,7 +15,7 @@ const DialogWrapper = styled.div`
     height: 83vh;
     padding: 1%;
     display: grid;
-    grid-template-rows: 11fr minmax(40px,1fr);
+    grid-template-rows: 11fr minmax(40px,auto);
     grid-row-gap: 1em;
     @media (max-width:450px){
         display:none;
@@ -39,10 +39,11 @@ font-size:80%;
 const NewMessage = styled.div`
 bottom: 0;
 display: grid;
-grid-template-columns: 1fr 11fr 1fr;
+grid-template-columns: 11fr 1fr;
 align-items: center;
-grid-column-gap: 1em;
+grid-column-gap: 3vh;
 padding: 0 0.5em;
+height: auto;
 `
 
 const MessageValue = styled.p`
@@ -68,6 +69,7 @@ const Button = styled.div`
 display: grid;
 justify-content: center;
 align-items: center;
+align-self: flex-start;
 border-radius: 0.5em;
 padding:10% 0;
 width: auto;
@@ -99,19 +101,18 @@ const Dialog = (props) => {
     )
 }
 
-const maxLengthFrom = maxLegthCreator(30);
 const NewMessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit} action="">
             <NewMessage>
-                <Button className={style.clip}>
-                    <Icon path={mdiPaperclip} size={1.1} />
-                </Button>
-                <Field component={Textarea} validate={[requiredField, maxLengthFrom]} className={style.newMessagevalue} name="NewMessagevalue" id="" cols="30" rows="1" placeholder="message"
+                
+                <Field component={Textarea} validate={[requiredField]} className={style.newMessagevalue} name="NewMessagevalue" id="" cols="30" rows="1" placeholder="message"
                     ></Field>
+                    <Button>
                 <button className={style.sendMessage}>
                     <Icon path={mdiEmailFast} size={1.3} />
                 </button>
+                </Button>
             </NewMessage>
             </form>
     )

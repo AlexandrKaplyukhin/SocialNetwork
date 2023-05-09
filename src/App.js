@@ -7,6 +7,10 @@ import MusicsContainer from './Musics/MusicsContainer';
 import HeaderContainer from './Header/HeaderContainer';
 import styled from 'styled-components';
 import LoginContainer from "./Login/LoginContainer";
+import Setting from "./Settings/Setting";
+import darkStyle from "./DarkTheme";
+import { useEffect } from "react";
+import News from "./News/News";
 
 const AppWrapper = styled.div`
     display: grid;
@@ -28,9 +32,23 @@ const ContentWrapper = styled.div`
         margin:0;
         padding:0;
     }
-    `
+`
 
 function App() {
+    useEffect(() => {
+        if(window['localStorage'] !== null) {
+            window.localStorage.getItem('theme') === 'dark'
+            ? switchDarkTheme()
+            : window.localStorage.setItem('theme', 'light')
+        }
+    })
+
+    const switchDarkTheme = () => {
+        window.localStorage.setItem('theme', 'dark')
+        const style = document.createElement('style')
+        document.head.appendChild(style)
+        style.innerHTML = darkStyle;
+    }
     return (
         <AppWrapper>
         <BrowserRouter>
@@ -45,6 +63,8 @@ function App() {
                         <Route path="/users" element={<UsersContainer />} />
                         <Route path="/music" element={<MusicsContainer />} />
                         <Route path="/login" element={<LoginContainer />} />
+                        <Route path="/setting" element={<Setting />} />
+                        <Route path="/news" element={<News />} />
 
                     </Routes>
                 </ContentWrapper>

@@ -14,13 +14,14 @@ const DialogsWrapper = styled.div`
         height: 4em;
         width: 100vw;
         grid-column-gap: 0.3em;
-        background-color: #626262;
+        background-color: #f80808;
         grid-template-columns: repeat(auto-fit, minmax(50px, 5vw));
+        grid-template-rows: 1fr;
         overflow-y:scroll;
+        overflow: hidden;
         align-items: center;
     justify-content: center;
     grid-column-gap: 1em;
-
 
     }
 `

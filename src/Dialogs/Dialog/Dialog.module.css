@@ -13,18 +13,12 @@ padding: 1%;
 font-size: large;
 min-height: 20px;
 resize: none;
+margin-right: 3vh;
 }
 
 .sendMessage{
-display: grid;
-justify-content: center;
-align-items: center;
-border-radius: 0.5em;
-padding:10% 0;
-width: auto;
+    background-color: transparent;
+border:none;
+outline: none;
 cursor: pointer;
-}
-.sendMessage :hover{
- transition:0.5s;
-    background-color: grey;
 }

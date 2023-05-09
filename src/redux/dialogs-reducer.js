@@ -1,7 +1,7 @@
 const SEND_MESSAGE = 'SEND_MESSAGE'
 
 let initilaState = {
-    dialogsData: [{ id: 1, name: 'Alex' },{ id: 1, name: 'Alex' }, { id: 2, name: 'Eva' }, { id: 3, name: 'Kirill' }],
+    dialogsData: [{ id: 1, name: 'Alex' },{ id: 1, name: 'Alex' }, { id: 1, name: 'Alex' }, { id: 1, name: 'Alex' }, { id: 1, name: 'Alex' }, { id: 1, name: 'Alex' }, { id: 2, name: 'Eva' }, { id: 3, name: 'Kirill' }],
     messagesData: [{ style: 'from', message: "Hello" }, { style: 'toMe', message: "I'am Alex" }, {
         id: 3, message: "It developer"
     }, { id: 4, message: 'Danil' }],

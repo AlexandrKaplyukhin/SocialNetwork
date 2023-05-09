@@ -1,10 +1,17 @@
+//import musicFile from '../assets/musics/San Holo - All The Highs'
 const ADD_MUSIC = 'ADD_MUSIC'
+const sound1 = require('../assets/musics/San Holo - All The Highs.mp3')
+const sound2 = require('../assets/musics/San Holo-Light.mp3')
+const sound3 = require('../assets/musics/The Score - Fire.mp3')
+const sound4 = require('../assets/musics/The Score - Revolution.mp3')
+
+
 let initialState = {
     musics: [
-        { id: 1, nameOfTrack: 'newMusics', file: '123' },
-        { id: 2, nameOfTrack: 'newMusics1', file: '1234' },
-
-
+        { id: 1, nameOfTrack: 'San Holo - All The Highs', file: sound1 },
+        { id: 2, nameOfTrack: 'San Holo-Light', file: sound2  },
+        { id: 2, nameOfTrack: 'The Score - Fire', file: sound3  },
+        { id: 2, nameOfTrack: 'The Score - Revolution', file: sound4  },
     ]
 }
 
