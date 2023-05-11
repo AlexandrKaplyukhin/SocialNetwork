@@ -9,7 +9,7 @@ const sound1 = require("../assets/musics/San Holo - All The Highs.mp3");
   const sound4 = require("../assets/musics/The Score - Revolution.mp3");
 
 class MusicsContainer extends React.Component {
-    state = {
+    /* state = {
         src: [sound1, sound2, sound3, sound4],
         playngSound: this.state.src[1]
     }
@@ -19,7 +19,7 @@ class MusicsContainer extends React.Component {
             playngSound: this.state.src[num]
         })
             }
-
+ */
     componentDidMount() {
 
     }

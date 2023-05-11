@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Input } from "../assets/FormControl/FormsControl";
 import { requiredField } from "../utils/validators/validators";
 import { connect } from "react-redux";
-import { login } from "../redux/auth-reducer";
+//import { login } from "../redux/auth-reducer";
 import { Navigate } from "react-router-dom";
 import style from "./Login.module.css";
 
@@ -126,4 +126,4 @@ const LoginReduxForm = reduxForm({
 const mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
 });
-export default connect(mapStateToProps, { login })(Login);
+export default connect(mapStateToProps/* , { login } */)(Login);

@@ -1,5 +1,5 @@
 #from{
-    margin-left: auto
+    margin-left: auto;
 }
 
 #toMe{
@@ -12,13 +12,23 @@ outline: none;
 padding: 1%;
 font-size: large;
 min-height: 20px;
+
 resize: none;
 margin-right: 3vh;
+@media (max-width:450px){
+    border-radius: 0 0.5em 0.5em 0;
+    }
 }
+
 
 .sendMessage{
     background-color: transparent;
 border:none;
 outline: none;
 cursor: pointer;
+@media (max-width:450px){
+justify-self: center;
+align-self:center;
+    }
+    
 }

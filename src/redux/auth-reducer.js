@@ -1,4 +1,4 @@
-import { stopSubmit } from "redux-form";
+//import { stopSubmit } from "redux-form";
 import { authAPI } from "../api/api";
 
 const SET_USER_DATA = 'SET_USER_DATA';
@@ -42,7 +42,7 @@ export const getAuth = () => (dispatch) => {
     })
 }
 
-export const login = (email, password, rememberme) => (dispatch) => {
+/* export const login = (email, password, rememberme) => (dispatch) => {
 
 authAPI.login(email, password, rememberme)
 .then(response => {
@@ -65,6 +65,6 @@ export const logout = () => (dispatch) => {
 
         }
     })
-    }
+    } */
 
 export default authReducer;

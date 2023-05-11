@@ -15,7 +15,6 @@ import { withAuthRedirect } from '../hoc/withAuthRedirect';
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-      
         this.props.getUsers(this.props.currentPage, this.props.pageSize)
     }
 
@@ -67,19 +66,21 @@ return{
 
 let mapStateToProps = (state) => {
     return {
-        users: state.usersPage.users,
+        //users: state.usersPage.users,
+        users:[{id:1, photos:{small: null}, name:'Alex'},{id:1, photos:{small: null}, name:'Alex'},{id:1, photos:{small: null}, name:'Alex'},{id:1, photos:{small: null}, name:'Alex'},{id:1, photos:{small: null}, name:'Alex'},{id:1, photos:{small: null}, name:'Alex'},{id:1, photos:{small: null}, name:'Alex'}],
         totalUsersCount: state.usersPage.totalUsersCount,
         pageSize: state.usersPage.pageSize,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
         followingInProgress: state.usersPage.followingInProgress
+
     }
 }
 
 
 
 export default compose(
-    withAuthRedirect,
+    //withAuthRedirect,
     connect(mapStateToProps, {
         followActionCreator,
         unfollowActionCreator,

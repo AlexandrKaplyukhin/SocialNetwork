@@ -20,6 +20,15 @@ const MusicPlayer = styled.div`
   background-color: #bbbbbb;
   border-radius: 1em;
   margin: 5vh 0;
+  @media (max-width:450px){
+    margin: 2vh 1vh;
+    width: 100vw;
+    min-width: 200px;
+    border-radius: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;;
+    
+    }
 `;
 const AllMusics = styled.div`
   display: grid;
@@ -32,6 +41,11 @@ const AllMusics = styled.div`
   background-color: #bbbbbb;
   overflow: hidden;
   margin-bottom: 5vh;
+  @media (max-width:450px){
+   justify-self: center;
+   justify-content: center;
+
+    }
 `
 
 const TreckWrapper = styled.div`
@@ -50,9 +64,18 @@ const TreckWrapper = styled.div`
         transition: 0.1s;
     }
 `
-const NameOfTrack = styled.p`
+const NameOfPlayer = styled.h1`
+@media (max-width:450px){
+  text-align: center;
+}
 `
-const Musics = (props) => {
+
+const FieldPlayer = styled.audio`
+  @media (max-width:450px){
+    justify-self: center;
+  }
+`
+const Musics = () => {
   /* let musicsData = props.musics.map((music) => (
     <TreckWrapper onClick={CheckTrack} >
       <Icon path={mdiMusicCircleOutline} size={1} />
@@ -80,22 +103,28 @@ const Musics = (props) => {
   return (
     <MusicWrapper>
       <MusicPlayer>
-        <h1>Music Player</h1>
-        <audio controls>
-          <source ref={IdSound} src={()=> {
-            
-          }} type="audio/mpeg" />
-        </audio>
+        <NameOfPlayer>Music Player</NameOfPlayer>
+        <FieldPlayer controls>
+          <source ref={IdSound} src={sound4} type="audio/mpeg" />
+        </FieldPlayer>
       </MusicPlayer>
 
       <AllMusics>
       <TreckWrapper id='1' onClick={CheckTrack} >
       <Icon path={mdiMusicCircleOutline} size={1} />
-      <NameOfTrack>San Holo - All The Highs</NameOfTrack>
+      <p>San Holo - All The Highs</p>
       </TreckWrapper>
       <TreckWrapper id='2' onClick={CheckTrack} >
       <Icon path={mdiMusicCircleOutline} size={1} />
-      <NameOfTrack>San Holo-Light</NameOfTrack>
+      <p>San Holo-Light</p>
+      </TreckWrapper>
+      <TreckWrapper id='2' onClick={CheckTrack} >
+      <Icon path={mdiMusicCircleOutline} size={1} />
+      <p>The Score - Fire</p>
+      </TreckWrapper>
+      <TreckWrapper id='2' onClick={CheckTrack} >
+      <Icon path={mdiMusicCircleOutline} size={1} />
+      <p>The Score - Revolution</p>
       </TreckWrapper>
       </AllMusics>
     </MusicWrapper>

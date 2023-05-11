@@ -16,7 +16,8 @@ const ProfileWrapper = styled.div`
 const Profile = (props) => {
     return (
         <ProfileWrapper>
-            <ProfileInfo profile={props.profile} status={props.status} updateStatusThunk={props.updateStatusThunk}/>
+            <ProfileInfo delTestWindowAC={props.delTestWindowAC} setTestWindowAC={props.setTestWindowAC} isSelected={props.isSelected}/* profile={props.profile} status={props.status} updateStatusThunk={props.updateStatusThunk} *//>
+            
             <MyPostsContainer />
         </ProfileWrapper>
     )

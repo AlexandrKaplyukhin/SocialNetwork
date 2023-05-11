@@ -18,7 +18,12 @@ const DialogWrapper = styled.div`
     grid-template-rows: 11fr minmax(40px,auto);
     grid-row-gap: 1em;
     @media (max-width:450px){
-        display:none;
+        height: h;
+        padding: 0;
+        grid-row-gap: 0em;
+        height: 76vh;
+        position:absolute;
+bottom:7vh;
     }
 `
 
@@ -32,6 +37,12 @@ overflow: scroll;
 padding: 0.8em 1em;
 flex-direction: row;
 align-content: end;
+@media (max-width:450px){
+        height: h;
+        padding: 3%;
+        border-radius: 0;
+
+    }
 `
 const DataSendMessage = styled.i`
 font-size:80%;
@@ -44,6 +55,11 @@ align-items: center;
 grid-column-gap: 3vh;
 padding: 0 0.5em;
 height: auto;
+@media (max-width:450px){
+    padding: 0;
+    height: 7vh;
+
+    }
 `
 
 const MessageValue = styled.p`
@@ -63,11 +79,15 @@ height:auto;
 overflow: hidden;
 word-wrap: break-word;
 hyphens: auto;
+@media (max-width:450px){
+    width: 100%;
+
+    }
 `
 
 const Button = styled.div`
 display: grid;
-justify-content: center;
+justify-content: center; 
 align-items: center;
 align-self: flex-start;
 border-radius: 0.5em;
@@ -76,8 +96,15 @@ width: auto;
 cursor: pointer;
 &:hover{
     transition:0.5s;
-    background-color: grey;
+    background-color: #616161;
+    align-self: center;
+
 }
+@media (max-width:450px){
+    padding: 0;
+    justify-self: center;
+align-self:center;
+    }
 `
 const Dialog = (props) => {
 

@@ -11,17 +11,16 @@ const DialogsWrapper = styled.div`
     overflow: auto;
     max-height: 84vh;
     @media (max-width:450px){
-        height: 4em;
-        width: 100vw;
-        grid-column-gap: 0.3em;
-        background-color: #f80808;
-        grid-template-columns: repeat(auto-fit, minmax(50px, 5vw));
+        height: 100%;
+        width: auto;
+        max-height: 10vh;
+        grid-column-gap: 3vw;
+        background-color: #424242;
+        grid-template-columns: repeat(auto-fit, minmax(50px, 3vw));
         grid-template-rows: 1fr;
-        overflow-y:scroll;
         overflow: hidden;
         align-items: center;
     justify-content: center;
-    grid-column-gap: 1em;
 
     }
 `
@@ -50,6 +49,7 @@ const PhotoPerson = styled.img`
         min-width: 10px;
         border-radius: 1em;
         height: 100%;
+        width: 100%;
         justify-self:center;
         margin:0.3em
     }

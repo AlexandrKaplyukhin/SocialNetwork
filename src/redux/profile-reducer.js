@@ -5,6 +5,8 @@ const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
+const SET_WINDOW = 'SET_WINDOW'
+const DEL_WINDOW = "DEL_WINDOW"
 
 let initilaState = {
     profile: null,
@@ -14,7 +16,8 @@ let initilaState = {
         { id: 1, message: 'Test', like: 15 },
     ],
     newPostText: 'Test menu',
-    status: ""
+    status: "",
+    isSelected: false,
 }
 
 const profileReducer = (state = initilaState, action) => {
@@ -34,6 +37,20 @@ const profileReducer = (state = initilaState, action) => {
 
             }
 
+        }
+
+        case SET_WINDOW:{
+            return{
+                ...state,
+                isSelected: true
+            }
+        }
+
+        case DEL_WINDOW:{
+            return{
+                ...state,
+                isSelected:false
+            }
         }
 
         case UPDATE_NEW_POST_TEXT: {
@@ -82,6 +99,16 @@ export const setStatusAC = (status) => {
 export const setUserProfile = (profile) => {
     return {
         type: SET_USER_PROFILE, profile
+    }
+}
+export const setTestWindowAC = () => {
+    return {
+        type: SET_WINDOW
+    }
+}
+export const delTestWindowAC = () => {
+    return {
+        type: DEL_WINDOW
     }
 }
 

@@ -103,7 +103,7 @@ const LinkToProfile = styled(NavLink)`
     display:grid;
 `
 const Users = (props) => {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+    //let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
     for (let i = 1; i <= 5; i++) {
         pages.push(i)
@@ -114,6 +114,7 @@ const Users = (props) => {
         <UsersWrapper>
             <InfoUsers>
                 {props.users.map(user => (
+                    
                     <UserCard key={user.id}>
                         <LinkToProfile to={'/profile' + user.id}>
                             <PhotoCard src={user.photos.small != null ? user.photos.small : userPhoto} alt="" />

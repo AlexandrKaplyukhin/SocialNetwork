@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import Preloader from '../../assets/Preloader/Preloader';
+//import Preloader from '../../assets/Preloader/Preloader';
 import Icon from '@mdi/react';
 import { mdiStarShooting } from '@mdi/js';
-import ProfileStatus from "./ProfileStatus"
+//import ProfileStatus from "./ProfileStatus"
 import PhotoUser from '../../assets/images/users.png'
 
 const ProfileInfoWrapper = styled.div`
@@ -107,23 +107,90 @@ const InfoBlock = styled.div`
 font-size:90%;
     }
 `
+ const PopUpWindow = styled.div`
+ display: grid;
+ justify-content: center;
+ align-items: center;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;;
+    height: 100vh;
+    background-color: #5757579d;
+    transition:1s;
+    z-index: 15;
+    backdrop-filter: blur(5px);
 
-const ProfileInfo = (props) => {
+ `
 
-    if (!props.profile) {
-        return <Preloader />
+ const TestWindow = styled.div`
+    display: grid;
+    grid-row-gap: 2vh;
+    z-index: 16;
+    background-color: white;
+    border-radius: 1em;
+    padding: 10%;
+    width:20vw;
+    min-width: 300px;
+    min-height: 100px;
+    height: 10vh;
+    text-align: center;
+    @media (max-width:450px){
+        width:70vw;
+    min-width: 100px;
+    min-height: 100px;
+    height: 10vh;
+    padding: 4%;
+    justify-self: center;
     }
+ `
+ const CloseTestWindow = styled.button`
+    border:none;
+    cursor: pointer;
+    border-radius: 0.5em;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    font-weight: bold;
+    background-color: #4e60af;
+    transition: 0.5s;
+padding: 0.5vh;
+    &:hover {
+        transition: 0.5s;
+        background-color: #1330af;
+color:white
+    }
+ `
+const ProfileInfo = (props) => {
+    
+    const popupWindow = () => {
+
+    props.setTestWindowAC()
+    }
+
+    const closePopupWindow = () =>{
+        props.delTestWindowAC()
+
+    }
+     /* if (!props.profile) {
+         return <Preloader />
+     } */
     return (
 
         <ProfileInfoWrapper>
+            {props.isSelected ? <PopUpWindow>
+<TestWindow>
+    <h1>Работает</h1>
+    <CloseTestWindow onClick={closePopupWindow}>Close</CloseTestWindow>
+</TestWindow>
+            </PopUpWindow> : null}
             <ProfileWrapper>
                 <PhotoProfile
-                    src={props.profile.photos.large != null ? props.profile.photos.large: PhotoUser }
+                    src={ PhotoUser }
                     alt="" />
                 <AboutProfile>
                     <h2>Alexandr Kaplyukhin</h2>
-                    <ProfileStatus status={props.status} updateStatusThunk={props.updateStatusThunk}/>
-                    <h3>Location: Kazan</h3>
+{/*                     <ProfileStatus status={props.status} updateStatusThunk={props.updateStatusThunk}/>
+ */}                    <h3>Location: Kazan</h3>
                     <h3>Birthday: 07.09.2000</h3>
                     <h3>Family status: nejenat</h3>
                     <h3>Link VK: 23432423421</h3>
@@ -147,7 +214,7 @@ const ProfileInfo = (props) => {
                         <p>Likes</p>
                         {234}
                     </InfoBlock>
-                    <InfoBlock>
+                    <InfoBlock onClick={popupWindow}>
                         <Icon path={mdiStarShooting} size={1.3} />
                     </InfoBlock>
 

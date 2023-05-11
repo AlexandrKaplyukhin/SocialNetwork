@@ -66,6 +66,7 @@ const AllPosts = styled.div`
 `;
 
 const MyPosts = (props) => {
+  debugger;
   let postsElements = props.posts.map((post) => (
     <Post message={post.message} key={post.id} like={post.like} />
   ));
