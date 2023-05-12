@@ -37,9 +37,9 @@ const NewPost = styled.div`
   @media (max-width: 450px) {
     border-radius: 0;
     width: 100vw;
-    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
 
-    grid-column-gap: 1%;
+    grid-column-gap: 7%;
     padding: 0.5em 0;
     height: auto;
     overflow: hidden;
@@ -62,8 +62,7 @@ const ButtonAddFile = styled.button`
   @media (max-width: 450px) {
     height: 70%;
     justify-self: center;
-    background-color: transparent;
-
+  display: none;
 
   }
 `;
