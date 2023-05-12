@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/SocialNetwork/static/css/main.34a26e0c.css",
-    "main.js": "/SocialNetwork/static/js/main.a5a2950e.js",
+    "main.css": "/SocialNetwork/static/css/main.30e23bca.css",
+    "main.js": "/SocialNetwork/static/js/main.d3664739.js",
     "static/js/787.eaaab13d.chunk.js": "/SocialNetwork/static/js/787.eaaab13d.chunk.js",
     "static/media/San Holo-Light.mp3": "/SocialNetwork/static/media/San Holo-Light.386c7afa877ec109c358.mp3",
     "static/media/The Score - Revolution.mp3": "/SocialNetwork/static/media/The Score - Revolution.da76939d41e1963ac157.mp3",
@@ -9,12 +9,12 @@
     "static/media/San Holo - All The Highs.mp3": "/SocialNetwork/static/media/San Holo - All The Highs.2fcf77c2ea1d5ec5c003.mp3",
     "index.html": "/SocialNetwork/index.html",
     "static/media/loaderrr.svg": "/SocialNetwork/static/media/loaderrr.86a4fafea2de0b5e5375809f025c04d3.svg",
-    "main.34a26e0c.css.map": "/SocialNetwork/static/css/main.34a26e0c.css.map",
-    "main.a5a2950e.js.map": "/SocialNetwork/static/js/main.a5a2950e.js.map",
+    "main.30e23bca.css.map": "/SocialNetwork/static/css/main.30e23bca.css.map",
+    "main.d3664739.js.map": "/SocialNetwork/static/js/main.d3664739.js.map",
     "787.eaaab13d.chunk.js.map": "/SocialNetwork/static/js/787.eaaab13d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.34a26e0c.css",
-    "static/js/main.a5a2950e.js"
+    "static/css/main.30e23bca.css",
+    "static/js/main.d3664739.js"
   ]
 }
