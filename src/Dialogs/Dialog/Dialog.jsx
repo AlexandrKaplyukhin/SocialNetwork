@@ -23,6 +23,7 @@ const DialogWrapper = styled.div`
         grid-row-gap: 0em;
         height: 76vh;
         position:absolute;
+        width: 100%;
 bottom:7vh;
     }
 `
@@ -50,7 +51,7 @@ font-size:80%;
 const NewMessage = styled.div`
 bottom: 0;
 display: grid;
-grid-template-columns: 11fr 1fr;
+grid-template-columns: 6fr 1fr;
 align-items: center;
 grid-column-gap: 3vh;
 padding: 0 0.5em;
