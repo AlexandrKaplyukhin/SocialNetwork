@@ -59,6 +59,8 @@ const ButtonAddFile = styled.button`
   }
   @media (max-width: 450px) {
     height: 70%;
+    justify-self: center;
+
   }
 `;
 
