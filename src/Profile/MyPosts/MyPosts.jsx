@@ -39,8 +39,9 @@ const NewPost = styled.div`
     width: 100vw;
     grid-column-gap: 1%;
     padding: 0.5em 0;
-    height: 3em;
-
+    height: 7vh;
+    overflow: hidden;
+align-items: center;
   }
 `;
 
@@ -55,7 +56,9 @@ const ButtonAddFile = styled.button`
   justify-self: end;
   &:hover {
     background-color: white;
-    height:100%;
+  }
+  @media (max-width: 450px) {
+    height: 3vh;
   }
 `;
 
