@@ -58,7 +58,7 @@ const ButtonAddFile = styled.button`
     background-color: white;
   }
   @media (max-width: 450px) {
-    height: 3vh;
+    height: 70%;
   }
 `;
 
