@@ -39,7 +39,7 @@ const NewPost = styled.div`
     width: 100vw;
     grid-column-gap: 1%;
     padding: 0.5em 0;
-    height: 7vh;
+    height: auto;
     overflow: hidden;
 align-items: center;
   }

@@ -24,7 +24,7 @@
     height: 90%;
     @media (max-width: 450px) {
       border-radius: 1em 0 0 1em;
-      height: 70%;
+      height: 90%;
 
     }
 }
