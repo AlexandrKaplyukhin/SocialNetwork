@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, HashRouter } from "react-router-dom";
 import Navbar from "./Navbar/Navbar";
 import Dialogs from "./Dialogs/Dialogs";
 import UsersContainer from './Users/UsersContainer';
@@ -51,7 +51,7 @@ function App() {
     }
     return (
         <AppWrapper>
-        <BrowserRouter>
+        <HashRouter>
                 <HeaderContainer />
                 <Navbar />
                 <ContentWrapper>
@@ -68,7 +68,7 @@ function App() {
 
                     </Routes>
                 </ContentWrapper>
-        </BrowserRouter>
+        </HashRouter>
         </AppWrapper>
 
     );
